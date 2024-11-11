@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 543e2ab2fe5614849b3103649765c96e
+  productGUID: 375ea44a67bcd0d4280163436285491f
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -171,7 +171,7 @@ PlayerSettings:
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 22
+  AndroidMinSdkVersion: 23
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -913,12 +913,12 @@ PlayerSettings:
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: d83fbed2-38fc-4b51-9086-3d01059a0032
+  cloudProjectId: f4da2748-bdf3-47a8-a1c1-79007169baa5
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: MyVrSample
+  projectName: MyVrSample 2024-11-11_13-54-38
   organizationId: toneed
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
