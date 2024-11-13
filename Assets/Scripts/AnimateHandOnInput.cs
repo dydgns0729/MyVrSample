@@ -6,25 +6,27 @@ namespace MyVrSample
     public class AnimateHandOnInput : MonoBehaviour
     {
         #region Variables
+        private Animator handAnimator;
 
-        Animator handAnimator;
-
-        //Ïù∏Ìíã ÏûÖÎ†•Í∞í Ï≤òÎ¶¨
-        public InputActionProperty pinchAnimation;
-        public InputActionProperty gripAnimation;
-
+        //¿Œ«≤ ¿‘∑¬∞™ √≥∏Æ
+        public InputActionProperty pinchAnimationAction;
+        public InputActionProperty gripAnimationAction;
         #endregion
 
+        // Start is called before the first frame update
         void Start()
         {
-            //Ï∞∏Ï°∞
+            //¬¸¡∂
             handAnimator = GetComponent<Animator>();
         }
+
+        // Update is called once per frame
         void Update()
         {
-            float triggerValue = pinchAnimation.action.ReadValue<float>();
-            float gripValue = gripAnimation.action.ReadValue<float>();
-            //Debug.Log($"triggerValue : {triggerValue}");
+            float triggerValue = pinchAnimationAction.action.ReadValue<float>();
+            float gripValue = gripAnimationAction.action.ReadValue<float>();
+            //Debug.Log($"triggerValue: {triggerValue}");
+
             handAnimator.SetFloat("Trigger", triggerValue);
             handAnimator.SetFloat("Grip", gripValue);
         }
