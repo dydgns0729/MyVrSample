@@ -5,12 +5,12 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 namespace MyVrSample
 {
     /// <summary>
-    /// Í∂åÏ¥ù Ï¥ùÏïå Î∞úÏÇ¨
+    /// ±«√— √—æÀ πﬂªÁ
     /// </summary>
     public class FireBulletOnActivate : MonoBehaviour
     {
         #region Variables
-        public GameObject bullet;
+        public GameObject bulletPrefab;
         public Transform firePoint;
         public float bulletSpeed = 20f;
         #endregion
@@ -23,7 +23,7 @@ namespace MyVrSample
 
         void Fire(ActivateEventArgs args)
         {
-            GameObject bulletGo = Instantiate(bullet, firePoint.position, firePoint.rotation);
+            GameObject bulletGo = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             bulletGo.GetComponent<Rigidbody>().linearVelocity = firePoint.forward * bulletSpeed;
             Destroy(bulletGo, 5f);
         }

@@ -4,14 +4,14 @@ using UnityEngine.InputSystem;
 namespace MyVrSample
 {
     /// <summary>
-    /// ì»¨íŠ¸ë¡¤ëŸ¬ ì† ëª¨ë¸ ì• ë‹ˆë©”ì´ì…˜ êµ¬í˜„
+    /// ÄÁÆ®·Ñ·¯ ¼Õ ¸ğµ¨ ¾Ö´Ï¸ŞÀÌ¼Ç ±¸Çö
     /// </summary>
     public class AnimateHandOnInput : MonoBehaviour
     {
         #region Variables
         private Animator handAnimator;
 
-        //ì¸í’‹ ì…ë ¥ê°’ ì²˜ë¦¬
+        //ÀÎÇ² ÀÔ·Â°ª Ã³¸®
         public InputActionProperty pinchAnimationAction;
         public InputActionProperty gripAnimationAction;
         #endregion
@@ -19,7 +19,7 @@ namespace MyVrSample
         // Start is called before the first frame update
         void Start()
         {
-            //ì°¸ì¡°
+            //ÂüÁ¶
             handAnimator = GetComponent<Animator>();
         }
 

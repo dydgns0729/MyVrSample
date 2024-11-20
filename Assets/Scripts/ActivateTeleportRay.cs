@@ -1,19 +1,23 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 namespace MyVrSample
 {
     /// <summary>
-    /// Teleport Rayë¥¼ ê´€ë¦¬í•˜ëŠ” í´ë˜ìŠ¤
+    /// Teleport Ray¸¦ °ü¸®ÇÏ´Â Å¬·¡½º
     /// </summary>
     public class ActivateTeleportRay : MonoBehaviour
     {
         #region Variables
-        public GameObject leftTeleportRay;      //í…”ë ˆí¬íŠ¸ Ray ì˜¤ë¸Œì íŠ¸
-        public GameObject rightTeleportRay;
+        public GameObject leftTeleportRay;          //ÅÚ·¹Æ÷Æ® ¿ŞÂÊ Ray ¿ÀºêÁ§Æ®
+        public GameObject rightTeleportRay;         //ÅÚ·¹Æ÷Æ® ¿À¸¥ÂÊ Ray ¿ÀºêÁ§Æ®
 
-        public InputActionProperty leftActivate; //Activate ì…ë ¥ê°’ì„ ë°›ì•„ì˜¤ê¸° ìœ„í•œ InputActionProperty
-        public InputActionProperty rightActivate;
+        public InputActionProperty leftActivate;    //¿ŞÂÊ ÄÁÆ®·Ñ·¯ÀÇ Activate ÀÔ·Â
+        public InputActionProperty rightActivate;   //¿À¸¥ÂÊ ÄÁÆ®·Ñ·¯ÀÇ Activate ÀÔ·Â
+
+        public XRRayInteractor leftGrapLay;
+        public XRRayInteractor rightGrapLay;
         #endregion
 
         private void Update()
@@ -21,10 +25,13 @@ namespace MyVrSample
             float leftActivateValue = leftActivate.action.ReadValue<float>();
             float rightActivateValue = rightActivate.action.ReadValue<float>();
 
-            leftTeleportRay.SetActive(leftActivateValue > 0.1f);
-            rightTeleportRay.SetActive(rightActivateValue > 0.1f);
+            bool isLeftRayHovering = leftGrapLay.TryGetHitInfo(out Vector3 leftPos, out Vector3 leftNormal,
+                out int leftNumber, out bool leftValid);
+            bool isRightRayHovering = rightGrapLay.TryGetHitInfo(out Vector3 rightPos, out Vector3 rightNormal,
+                out int rightNumber, out bool rightValid);
+
+            leftTeleportRay.SetActive(!isLeftRayHovering && leftActivateValue > 0.1f);
+            rightTeleportRay.SetActive(!isRightRayHovering && rightActivateValue > 0.1f);
         }
-
-
     }
 }

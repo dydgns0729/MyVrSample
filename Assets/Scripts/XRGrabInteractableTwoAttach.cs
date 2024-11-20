@@ -5,19 +5,18 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 namespace MyVrSample
 {
     /// <summary>
-    /// ë‘ê°œì˜ Attach point êµ¬í˜„
+    /// µÎ°³ÀÇ Attach Point ±¸Çö
     /// </summary>
     public class XRGrabInteractableTwoAttach : XRGrabInteractable
     {
-        #region Variables
+        #region Variablse
         public Transform leftAttachTransform;
         public Transform rightAttachTransform;
-
         #endregion
 
         protected override void OnSelectEntering(SelectEnterEventArgs args)
         {
-            //ë‘ê°œì˜ Attach pointì¤‘ ì¡ëŠ” ì†ì„ êµ¬ë¶„
+            //µÎ°³ÀÇ Attach Point¸¦ Àâ´Â ¼Õ¿¡ µû¶ó ±¸ºĞÇØ¼­ Àû¿ë
             if (args.interactorObject.transform.CompareTag("LeftHand"))
             {
                 attachTransform = leftAttachTransform;
@@ -29,21 +28,20 @@ namespace MyVrSample
 
             base.OnSelectEntering(args);
         }
+        
+        /*protected override void OnSelectEntered(SelectEnterEventArgs args)
+        {
+            //µÎ°³ÀÇ Attach Point¸¦ Àâ´Â ¼Õ¿¡ µû¶ó ±¸ºĞÇØ¼­ Àû¿ë
+            if(args.interactorObject.transform.CompareTag("LeftHand"))
+            {
+                attachTransform = leftAttachTransform;
+            }
+            else if (args.interactorObject.transform.CompareTag("RightHand"))
+            {
+                attachTransform = rightAttachTransform;
+            }
 
-        //protected override void OnSelectEntered(SelectEnterEventArgs args)
-        //{
-        //    //ë‘ê°œì˜ Attach pointì¤‘ ì¡ëŠ” ì†ì„ êµ¬ë¶„
-        //    if (args.interactorObject.transform.CompareTag("LeftHand"))
-        //    {
-        //        attachTransform = leftAttachTransform;
-        //    }
-        //    else if (args.interactorObject.transform.CompareTag("RightHand"))
-        //    {
-        //        attachTransform = rightAttachTransform;
-        //    }
-
-        //    base.OnSelectEntered(args);
-        //}
-
+            base.OnSelectEntered(args);
+        }*/
     }
 }
