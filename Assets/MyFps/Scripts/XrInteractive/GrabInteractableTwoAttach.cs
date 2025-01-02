@@ -2,12 +2,12 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-namespace MyVrSample
+namespace MyFps
 {
     /// <summary>
-    /// ë‘ê°œì˜ Attach Point êµ¬í˜„
+    /// µÎ°³ÀÇ Attach Point ±¸Çö
     /// </summary>
-    public class XRGrabInteractableTwoAttach : XRGrabInteractable
+    public class GrabInteractableTwoAttach : GrabInteractable
     {
         #region Variablse
         public Transform leftAttachTransform;
@@ -16,32 +16,27 @@ namespace MyVrSample
 
         protected override void OnSelectEntering(SelectEnterEventArgs args)
         {
-            //ë‘ê°œì˜ Attach Pointë¥¼ ì¡ëŠ” ì†ì— ë”°ë¼ êµ¬ë¶„í•´ì„œ ì ìš©
+            //µÎ°³ÀÇ Attach Point¸¦ Àâ´Â ¼Õ¿¡ µû¶ó ±¸ºĞÇØ¼­ Àû¿ë
             if (args.interactorObject.transform.CompareTag("LeftHand"))
             {
                 attachTransform = leftAttachTransform;
-                //this.gameObject.GetComponent<BoxCollider>().enabled = false;
             }
             else if (args.interactorObject.transform.CompareTag("RightHand"))
             {
                 attachTransform = rightAttachTransform;
-                //this.gameObject.GetComponent<BoxCollider>().enabled = false;
             }
-            this.gameObject.GetComponent<BoxCollider>().enabled = false;
+
             base.OnSelectEntering(args);
         }
 
-        protected override void OnSelectExiting(SelectExitEventArgs args)
+        protected override void DoAction()
         {
-            // ì˜¤ë¸Œì íŠ¸ë¥¼ ë†“ì„ ë•Œ BoxCollider ë‹¤ì‹œ í™œì„±í™”
-            this.gameObject.GetComponent<BoxCollider>().enabled = true;
 
-            base.OnSelectExiting(args);
         }
 
         /*protected override void OnSelectEntered(SelectEnterEventArgs args)
         {
-            //ë‘ê°œì˜ Attach Pointë¥¼ ì¡ëŠ” ì†ì— ë”°ë¼ êµ¬ë¶„í•´ì„œ ì ìš©
+            //µÎ°³ÀÇ Attach Point¸¦ Àâ´Â ¼Õ¿¡ µû¶ó ±¸ºĞÇØ¼­ Àû¿ë
             if(args.interactorObject.transform.CompareTag("LeftHand"))
             {
                 attachTransform = leftAttachTransform;

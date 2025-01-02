@@ -1772,6 +1772,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7957206017700830095, guid: 04c55baecfc0e1c408841b4b87c65a80, type: 3}
   firePoint: {fileID: 1482465760}
   bulletSpeed: 20
+  hapticAmplitude: 0.5
+  hapticDuration: 0.2
 --- !u!114 &731145350
 MonoBehaviour:
   m_ObjectHideFlags: 0
